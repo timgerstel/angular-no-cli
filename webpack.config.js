@@ -42,6 +42,15 @@ module.exports = {
         ]
       })
     ],
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+          chunks: "all",
+          maxAsyncRequests: Infinity,
+          minSize: 0,
+          name: "vendor"
+      }
+    },
     devServer: {
       static: {
           directory: path.resolve(__dirname, "dist")
