@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -30,6 +31,15 @@ module.exports = {
       new HtmlWebpackPlugin({
           filename: path.resolve(__dirname, "dist", "index.html"),
           template: path.resolve(__dirname, "src/index.html")
+      }),
+      new CopyPlugin({
+        patterns: [
+            {
+                from: "**/*.html",
+                to: path.resolve(__dirname, "dist", "[name].html"),
+                context: "src/app/"
+            }
+        ]
       })
     ],
     devServer: {
