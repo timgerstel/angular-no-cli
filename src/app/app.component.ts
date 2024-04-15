@@ -1,9 +1,11 @@
 import {Component} from "@angular/core";
+import styles from './app.component.css';
+import html from './app.component.html';
 
 @Component({
     selector: "app-root",
-    templateUrl: "./app.component.html",
-    styleUrls: ["app.component.css"]
+    template: html,
+    styles: [styles]
 })
 export class AppComponent {
     title = 'Angular no CLI';
