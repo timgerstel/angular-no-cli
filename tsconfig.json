@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-      "target": "es2016",
-      "lib": ["es2020", "dom"],
+      "target": "es2022",
+      "lib": ["es2022", "dom"],
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
-      "module": "ES2020",
+      "module": "ES2022",
       "moduleResolution": "node",
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,

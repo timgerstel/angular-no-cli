@@ -7,7 +7,8 @@ await fs.copyFile('./src/app/app.component.html', './dist/app.component.html');
 await esbuild.build({
   entryPoints: ['./src/main.ts'],
   bundle: true,
-  outfile: './dist/app.js',
+  outfile: './dist/app.mjs',
+  format: 'esm',
   sourcemap: true,
   tsconfig: './tsconfig.json',
 })
