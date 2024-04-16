@@ -5,9 +5,17 @@
     <title>Angular no cli</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="importmap">
+        {
+          "imports": {
+            "@angular/core": "/node_modules/@angular/core/fesm2022/core.js",
+            "@angular/core/primitives/signals": "/node_modules/@angular/core/fesm2022/primitives/signals.js"
+          }
+        }
+      </script>
     </head>
     <body>
         <app-root></app-root>
-        <script src="app.mjs" type="module"></script>
+        <script src="/src/main.js" type="module"></script>
 </body>
 </html>
