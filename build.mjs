@@ -7,6 +7,7 @@ await fs.copyFile('./src/index.html', './dist/index.html');
 await esbuild.build({
   entryPoints: [
     './src/main.ts',
+    './src/plugin/index.ts',
     './node_modules/@angular/core/fesm2022/core.mjs',
     './node_modules/@angular/core/fesm2022/primitives/signals.mjs',
   ],
