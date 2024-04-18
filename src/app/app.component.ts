@@ -8,7 +8,7 @@ import html from './app.component.html';
     styles: [styles]
 })
 export class AppComponent {
-    title = 'Angular no CLI';
+    title = 'POC for Angular Component Loader';
     private vcr = inject(ViewContainerRef);
     
     async loadPlugin() {
