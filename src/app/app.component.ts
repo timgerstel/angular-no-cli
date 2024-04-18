@@ -17,6 +17,9 @@ export class AppComponent {
         console.log(`plugin loaded`, pluginModule);
         const {plugin} = pluginModule;
         const componentRef = this.vcr.createComponent(plugin);
-        console.log(`component created`, componentRef);
+        if (componentRef) {
+            console.log(`component created`, componentRef);
+            componentRef.changeDetectorRef.detectChanges();
+        }
     }
 }
