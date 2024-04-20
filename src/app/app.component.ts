@@ -16,6 +16,7 @@ export class AppComponent {
         const pluginModule = await import(pluginLib);
         console.log(`plugin loaded`, pluginModule);
         const {plugin} = pluginModule;
+        console.log(`plugin`, plugin);
         const componentRef = this.vcr.createComponent(plugin);
         if (componentRef) {
             console.log(`component created`, componentRef);
