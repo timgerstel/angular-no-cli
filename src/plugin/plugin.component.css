@@ -1,0 +1,11 @@
+:host {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+div {
+  color: lime;
+  background-color: lightcoral;
+}
