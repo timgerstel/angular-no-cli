@@ -1,6 +1,6 @@
 const path = require('path');
 const AngularWebpackPlugin = require('@ngtools/webpack').AngularWebpackPlugin;
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -34,7 +34,7 @@ module.exports = {
                         resourceQuery: {
                             not: [/\?ngResource/]
                         },
-                        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+                        use: [/*MiniCssExtractPlugin.loader*/, "css-loader", "postcss-loader"]
                     },
                     {
                         type: "asset/source",
@@ -75,9 +75,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
+        // new MiniCssExtractPlugin({
+        //     filename: '[name].css',
+        // }),
         new AngularWebpackPlugin({
             tsconfig: path.resolve(__dirname, "tsconfig.plugin.json"),
             jitMode: false,
