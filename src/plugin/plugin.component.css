@@ -2,10 +2,15 @@
   width: 30rem;
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
 }
 
 div {
   color: lime;
   background-color: lightcoral;
+}
+
+.pluginId {
+    background-color: white;
+    color: black;
+    font-weight: bold;
 }

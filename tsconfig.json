@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+      "include": [
+        "./src/shared/mvd-hosting.d.ts"
+      ],
       "target": "es2022",
       "lib": ["es2022", "dom"],
       "experimentalDecorators": true,
