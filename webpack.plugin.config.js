@@ -93,5 +93,5 @@ module.exports = {
           name: "vendor"
       }
     },
-    externals: ['@angular/core']
+  externals: ['@angular/core', '@angular/common', '@angular/common/http', '@angular/compiler', '@angular/platform-browser-dynamic']
 }

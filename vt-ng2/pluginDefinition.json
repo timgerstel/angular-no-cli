@@ -1,0 +1,40 @@
+{
+  "identifier": "org.zowe.terminal.vt",
+  "apiVersion": "2.0.0",
+  "pluginVersion": "2.16.0",
+  "pluginType": "application",
+  "license": "EPL-2.0",
+  "author": "Zowe",
+  "homepage": "https://github.com/zowe/vt-ng2",
+  "webContent": {
+    "framework": "angular",
+    "launchDefinition": {
+      "pluginShortNameKey": "VT Terminal",
+      "pluginShortNameDefault": "VT Terminal",
+      "imageSrc": "assets/icon.png"
+    },
+    "descriptionKey": "VT Description",
+    "descriptionDefault": "Basic VT Terminal Emulator for SSH and Telnet",
+    "defaultWindowStyle": {
+      "width": 800,
+      "height": 600
+    }
+  },
+  "configurationData": {
+    "resources": {
+      "sessions": {
+        "locationType": "relative",
+        "aggregationPolicy": "override"
+      }
+    }
+  },
+  "dataServices": [
+    {
+      "type": "import",
+      "localName": "terminalstream",
+      "sourceName": "vtdata",
+      "sourcePlugin": "org.zowe.terminal.proxy",
+      "versionRange": "^1.0.0"
+    }
+  ]
+}
