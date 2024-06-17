@@ -1,0 +1,28 @@
+<!--src/index.html-->
+<html lang="en">
+<head>
+    <base href="/">
+    <title>Angular no cli</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="importmap">
+        {
+          "imports": {
+            "@angular/core": "/node_modules/@angular/core/fesm2022/core.js",
+            "@angular/core/primitives/signals": "/node_modules/@angular/core/fesm2022/primitives/signals.js",
+            "@angular/compiler": "/node_modules/@angular/compiler/fesm2022/compiler.js",
+            "@angular/common": "/node_modules/@angular/common/fesm2022/common.js",
+            "@angular/common/http": "/node_modules/@angular/common/fesm2022/http.js",
+            "@angular/platform-browser-dynamic": "/node_modules/@angular/platform-browser-dynamic/fesm2022/platform-browser-dynamic.js",
+            "rxjs": "/node_modules/rxjs/dist/esm/index.js",
+            "@company/plugin": "/plugin/index.mjs",
+            "@company/vtplugin": "/vt/index.mjs"
+          }
+        }
+      </script>
+    </head>
+    <body>
+        <app-root></app-root>
+        <script src="/src/main.js" type="module"></script>
+</body>
+</html>
