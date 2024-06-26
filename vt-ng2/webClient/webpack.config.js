@@ -37,15 +37,13 @@ module.exports = {
                       use: [/*MiniCssExtractPlugin.loader*/, "css-loader", "postcss-loader"]
                     },
                   {
-
                     use: [
-                    
-                      'to-string-loader',
+                      // 'to-string-loader',
                       {
                     loader: "css-loader",
                       options: {
-                        exportType: 'array',
-                        esModule: true,
+                        exportType: 'string',
+                        esModule: false,
                         sourceMap: false,
                         importLoaders: 1
                       }
@@ -55,6 +53,10 @@ module.exports = {
                   }
 
                 ]
+            },
+            {
+              test: /\.(jpg|png|svg|gif)$/,
+              type: 'asset',
             },
             {
                 test: /\.?(svg|html)$/,
