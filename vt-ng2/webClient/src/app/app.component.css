@@ -103,7 +103,7 @@
 
 .vt {
   background-color: #000;
-  position: absolute !important;
+  /* position: absolute !important; */
   left: 0;
   right: 0;
   bottom: 0;
