@@ -24,7 +24,8 @@ For some reason the items needed are getting erased upon rebuild, so you will wa
   "@angular/platform-browser-dynamic": "/node_modules/@angular/platform-browser-dynamic/fesm2022/platform-browser-dynamic.js",
   "rxjs": "/node_modules/rxjs/dist/esm/index.js",
   "@company/plugin": "/plugin/index.mjs",
-  "@company/vtplugin": "/vt/index.mjs"
+  "@company/vtplugin": "/vt/index.mjs",
+  "@company/samplereact": "/sample-react/main.js"
 }
 ```
 

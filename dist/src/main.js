@@ -2447,7 +2447,7 @@ var Angular2InjectionTokens = {
 var app_component_default = "main {\n  color: red;\n  margin-bottom: 1rem;\n}";
 
 // src/app/app.component.html
-var app_component_default2 = '<!--src/app/app.component.html-->\n<main>{{ title }}</main>\n<button (click)="loadPlugin()">Load Plugin</button>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginOne></div>\n</div>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n <!-- Viewport -->\n <div #pluginTwo></div>\n</div>\n';
+var app_component_default2 = '<!--src/app/app.component.html-->\n<main>{{ title }}</main>\n<button (click)="loadPlugin()">Load Plugin</button>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginOne></div>\n</div>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n <!-- Viewport -->\n <div #pluginTwo></div>\n</div>\n\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginThree></div>\n </div>\n ';
 
 // src/app/app.component.ts
 var AppComponent = class {
@@ -2455,6 +2455,7 @@ var AppComponent = class {
   vcr = inject(ViewContainerRef);
   pluginOneRef;
   pluginTwoRef;
+  pluginThreeRef;
   async loadPlugin() {
     const pluginLib = "@company/plugin";
     const pluginModule = await import(pluginLib);
@@ -2466,6 +2467,11 @@ var AppComponent = class {
     console.log(`vtPlugin loaded`, vtPluginModule);
     const vtPlugin = vtPluginModule.pluginComponent;
     console.log(`vtPlugin`, vtPlugin);
+    const reactPluginLib = "@company/samplereact";
+    const reactPluginModule = await import(reactPluginLib);
+    console.log(`sample react loaded`, reactPluginModule);
+    const reactPlugin = reactPluginModule.pluginComponent;
+    console.log(`reactPlugin`, reactPlugin);
     const pluginDef = {
       identifier: "org.zowe.foo",
       version: "0.0.1",
@@ -2476,6 +2482,12 @@ var AppComponent = class {
       identifier: "org.zowe.terminal.vt",
       version: "0.0.1",
       pluginVersion: "3.0.0",
+      pluginType: "application"
+    };
+    const reactPluginDef = {
+      identifier: "org.zowe.zlux.sample.reac",
+      version: "0.0.1",
+      pluginVersion: "2.17.0",
       pluginType: "application"
     };
     console.log(this.pluginOneRef);
@@ -2489,6 +2501,11 @@ var AppComponent = class {
       console.log(`component created`, vtComponentRef);
       vtComponentRef.changeDetectorRef.detectChanges();
     }
+    const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, { injector: makeInjector(vtPluginDef) });
+    if (reactComponentRef) {
+      console.log(`component created`, reactComponentRef);
+      reactComponentRef.changeDetectorRef.detectChanges();
+    }
   }
 };
 __decorateClass([
@@ -2497,6 +2514,9 @@ __decorateClass([
 __decorateClass([
   ViewChild("pluginTwo", { read: ViewContainerRef })
 ], AppComponent.prototype, "pluginTwoRef", 2);
+__decorateClass([
+  ViewChild("pluginThree", { read: ViewContainerRef })
+], AppComponent.prototype, "pluginThreeRef", 2);
 AppComponent = __decorateClass([
   Component({
     selector: "app-root",

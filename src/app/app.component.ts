@@ -18,6 +18,9 @@ export class AppComponent {
 
     @ViewChild('pluginTwo', {read: ViewContainerRef})
     pluginTwoRef!: ElementRef;
+
+    @ViewChild('pluginThree', {read: ViewContainerRef})
+    pluginThreeRef!: ElementRef;
   
     
     async loadPlugin() {
@@ -34,6 +37,12 @@ export class AppComponent {
         const vtPlugin = vtPluginModule.pluginComponent;
         console.log(`vtPlugin`, vtPlugin);
 
+        const reactPluginLib = "@company/samplereact";
+        const reactPluginModule = await import(reactPluginLib);
+        console.log(`sample react loaded`, reactPluginModule);
+        const reactPlugin = reactPluginModule.pluginComponent;
+        console.log(`reactPlugin`, reactPlugin);
+
       
         const pluginDef = {
             identifier: 'org.zowe.foo',
@@ -46,6 +55,13 @@ export class AppComponent {
             identifier: 'org.zowe.terminal.vt',
             version: '0.0.1',
             pluginVersion: '3.0.0',
+            pluginType: 'application'
+        };
+
+        const reactPluginDef = {
+            identifier: 'org.zowe.zlux.sample.reac',
+            version: '0.0.1',
+            pluginVersion: '2.17.0',
             pluginType: 'application'
         };
 
@@ -63,6 +79,12 @@ export class AppComponent {
             console.log(`component created`, vtComponentRef);
             vtComponentRef.changeDetectorRef.detectChanges();
         }
+
+      const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(vtPluginDef)} );
+      if (reactComponentRef) {
+          console.log(`component created`, reactComponentRef);
+          reactComponentRef.changeDetectorRef.detectChanges();
+      }
     }
 }
   
