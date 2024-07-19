@@ -59,7 +59,7 @@ export class AppComponent {
         };
 
         const reactPluginDef = {
-            identifier: 'org.zowe.zlux.sample.reac',
+            identifier: 'org.zowe.zlux.sample.react',
             version: '0.0.1',
             pluginVersion: '2.17.0',
             pluginType: 'application'
@@ -80,7 +80,7 @@ export class AppComponent {
             vtComponentRef.changeDetectorRef.detectChanges();
         }
 
-      const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(vtPluginDef)} );
+      const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(reactPluginDef)} );
       if (reactComponentRef) {
           console.log(`component created`, reactComponentRef);
           reactComponentRef.changeDetectorRef.detectChanges();
