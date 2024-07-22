@@ -2470,8 +2470,6 @@ var AppComponent = class {
     const reactPluginLib = "@company/samplereact";
     const reactPluginModule = await import(reactPluginLib);
     console.log(`sample react loaded`, reactPluginModule);
-    const reactPlugin = reactPluginModule.pluginComponent;
-    console.log(`reactPlugin`, reactPlugin);
     const pluginDef = {
       identifier: "org.zowe.foo",
       version: "0.0.1",
@@ -2485,7 +2483,7 @@ var AppComponent = class {
       pluginType: "application"
     };
     const reactPluginDef = {
-      identifier: "org.zowe.zlux.sample.reac",
+      identifier: "org.zowe.zlux.sample.react",
       version: "0.0.1",
       pluginVersion: "2.17.0",
       pluginType: "application"
@@ -2501,7 +2499,7 @@ var AppComponent = class {
       console.log(`component created`, vtComponentRef);
       vtComponentRef.changeDetectorRef.detectChanges();
     }
-    const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, { injector: makeInjector(vtPluginDef) });
+    const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, { injector: makeInjector(reactPluginDef) });
     if (reactComponentRef) {
       console.log(`component created`, reactComponentRef);
       reactComponentRef.changeDetectorRef.detectChanges();

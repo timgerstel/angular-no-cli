@@ -40,8 +40,8 @@ export class AppComponent {
         const reactPluginLib = "@company/samplereact";
         const reactPluginModule = await import(reactPluginLib);
         console.log(`sample react loaded`, reactPluginModule);
-        const reactPlugin = reactPluginModule.pluginComponent;
-        console.log(`reactPlugin`, reactPlugin);
+        // const reactPlugin = reactPluginModule.pluginComponent;
+        // console.log(`reactPlugin`, reactPlugin);
 
       
         const pluginDef = {
