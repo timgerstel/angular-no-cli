@@ -2499,11 +2499,7 @@ var AppComponent = class {
       console.log(`component created`, vtComponentRef);
       vtComponentRef.changeDetectorRef.detectChanges();
     }
-    const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, { injector: makeInjector(reactPluginDef) });
-    if (reactComponentRef) {
-      console.log(`component created`, reactComponentRef);
-      reactComponentRef.changeDetectorRef.detectChanges();
-    }
+    reactPluginModule.renderPlugin(this.pluginThreeRef.nativeElement, makeInjector(reactPluginDef));
   }
 };
 __decorateClass([
@@ -2513,7 +2509,7 @@ __decorateClass([
   ViewChild("pluginTwo", { read: ViewContainerRef })
 ], AppComponent.prototype, "pluginTwoRef", 2);
 __decorateClass([
-  ViewChild("pluginThree", { read: ViewContainerRef })
+  ViewChild("pluginThree")
 ], AppComponent.prototype, "pluginThreeRef", 2);
 AppComponent = __decorateClass([
   Component({

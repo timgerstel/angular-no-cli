@@ -19,8 +19,7 @@ export class AppComponent {
     @ViewChild('pluginTwo', {read: ViewContainerRef})
     pluginTwoRef!: ElementRef;
 
-    @ViewChild('pluginThree', {read: ViewContainerRef})
-    pluginThreeRef!: ElementRef;
+    @ViewChild('pluginThree') pluginThreeRef!: ElementRef;
   
     
     async loadPlugin() {
@@ -80,11 +79,12 @@ export class AppComponent {
             vtComponentRef.changeDetectorRef.detectChanges();
         }
 
-      const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(reactPluginDef)} );
-      if (reactComponentRef) {
-          console.log(`component created`, reactComponentRef);
-          reactComponentRef.changeDetectorRef.detectChanges();
-      }
+      reactPluginModule.renderPlugin(this.pluginThreeRef.nativeElement, makeInjector(reactPluginDef));
+      // const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(reactPluginDef)} );
+      // if (reactComponentRef) {
+      //     console.log(`component created`, reactComponentRef);
+      //     reactComponentRef.changeDetectorRef.detectChanges();
+      // }
     }
 }
   
