@@ -1,0 +1,44 @@
+{
+  "identifier": "org.zowe.zlux.sample.react",
+  "apiVersion": "2.0.0",
+  "pluginVersion": "2.17.0",
+  "pluginType": "application",
+  "license": "EPL-2.0",
+  "author": "Zowe",
+  "homepage": "https://github.com/zowe/sample-react-app",
+  "webContent": {
+    "framework": "react",
+    "launchDefinition": {
+      "pluginShortNameKey": "samplereact",
+      "pluginShortNameDefault": "React Sample",
+      "imageSrc": "assets/icon.png"
+    },
+    "descriptionKey": "SampleReactPluginDescription",
+    "descriptionDefault": "Sample App Showcasing React Adapter",
+    "defaultWindowStyle": {
+      "width": 900,
+      "height": 420
+    }
+  },
+  "dataServices": [
+    {
+      "type": "import",
+      "sourceName": "hello",
+      "localName": "hello",
+      "sourcePlugin": "org.zowe.zlux.sample.angular",
+      "versionRange": "^1.0.0"
+    }
+  ],
+  "configurationData": {
+    "resources": {
+      "requests": {
+        "aggregationPolicy": "override",
+        "subResources": {
+          "app": {
+            "aggregationPolicy": "override"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "include": ["./src"],
+  "compilerOptions": {
+    "jsx": "react",
+    "skipLibCheck": true,
+    "target": "es2022",
+    "noImplicitAny": false,
+    "lib": ["es2022", "dom"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+  }
+}
