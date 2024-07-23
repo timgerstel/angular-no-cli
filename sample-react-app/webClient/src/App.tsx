@@ -20,6 +20,7 @@ class App extends React.Component<any, any> {
     super(props);
     this.log = this.props.resources.logger;
     let metadata = this.props.resources.launchMetadata;
+    console.log("resources from Sample React App:", this.props.resources);
     if (metadata != null && metadata.data != null && metadata.data.type != null) {
       console.log("react app received meta data:", metadata);
       this.handleLaunchOrMessageObject(metadata.data);
