@@ -2447,7 +2447,7 @@ var Angular2InjectionTokens = {
 var app_component_default = "main {\n  color: red;\n  margin-bottom: 1rem;\n}";
 
 // src/app/app.component.html
-var app_component_default2 = '<!--src/app/app.component.html-->\n<main>{{ title }}</main>\n<button (click)="loadPlugin()">Load Plugin</button>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginOne></div>\n</div>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n <!-- Viewport -->\n <div #pluginTwo></div>\n</div>\n\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginThree></div>\n </div>\n ';
+var app_component_default2 = '<!--src/app/app.component.html-->\n<main>{{ title }}</main>\n<button (click)="loadPlugin()">Load Plugin</button>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginOne></div>\n</div>\n\n<!-- Window -->\n<div style="width:640px; height: 480px">\n <!-- Viewport -->\n <div #pluginTwo></div>\n</div>\n\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginThree></div>\n </div>\n\n<div style="width:640px; height: 480px">\n  <!-- Viewport -->\n  <div #pluginFour></div>\n</div>\n ';
 
 // src/app/app.component.ts
 var AppComponent = class {
@@ -2456,6 +2456,7 @@ var AppComponent = class {
   pluginOneRef;
   pluginTwoRef;
   pluginThreeRef;
+  pluginFourRef;
   async loadPlugin() {
     const pluginLib = "@company/plugin";
     const pluginModule = await import(pluginLib);
@@ -2470,6 +2471,11 @@ var AppComponent = class {
     const reactPluginLib = "@company/samplereact";
     const reactPluginModule = await import(reactPluginLib);
     console.log(`sample react loaded`, reactPluginModule);
+    const tnPluginLib = "@company/tnplugin";
+    const tnPluginModule = await import(tnPluginLib);
+    console.log(`tnPlugin loaded`, tnPluginModule);
+    const tnPlugin = tnPluginModule.pluginComponent;
+    console.log(`tnPlugin`, tnPlugin);
     const pluginDef = {
       identifier: "org.zowe.foo",
       version: "0.0.1",
@@ -2488,6 +2494,12 @@ var AppComponent = class {
       pluginVersion: "2.17.0",
       pluginType: "application"
     };
+    const tnPluginDef = {
+      identifier: "org.zowe.terminal.tn3270",
+      version: "0.0.1",
+      pluginVersion: "2.17.0",
+      pluginType: "application"
+    };
     console.log(this.pluginOneRef);
     const componentRef = this.pluginOneRef.createComponent(plugin, { injector: makeInjector(pluginDef) });
     if (componentRef) {
@@ -2500,6 +2512,11 @@ var AppComponent = class {
       vtComponentRef.changeDetectorRef.detectChanges();
     }
     reactPluginModule.renderPlugin(this.pluginThreeRef.nativeElement, makeInjector(reactPluginDef));
+    const tnComponentRef = this.pluginFourRef.createComponent(tnPlugin, { injector: makeInjector(tnPluginDef) });
+    if (tnComponentRef) {
+      console.log(`component created`, tnComponentRef);
+      tnComponentRef.changeDetectorRef.detectChanges();
+    }
   }
 };
 __decorateClass([
@@ -2511,6 +2528,9 @@ __decorateClass([
 __decorateClass([
   ViewChild("pluginThree")
 ], AppComponent.prototype, "pluginThreeRef", 2);
+__decorateClass([
+  ViewChild("pluginFour", { read: ViewContainerRef })
+], AppComponent.prototype, "pluginFourRef", 2);
 AppComponent = __decorateClass([
   Component({
     selector: "app-root",

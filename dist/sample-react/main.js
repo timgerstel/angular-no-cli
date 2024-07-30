@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
   SPDX-License-Identifier: EPL-2.0
   
   Copyright Contributors to the Zowe Project.
-*/class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component{log;t;constructor(props){super(props);this.log=this.props.resources.logger;let metadata=this.props.resources.launchMetadata;if(metadata!=null&&metadata.data!=null&&metadata.data.type!=null){console.log("react app received meta data:",metadata);this.handleLaunchOrMessageObject(metadata.data);}else{this.state=this.getDefaultState();}}getDefaultState(){return{actionType:"Launch",appTarget:"PluginCreate",parameters:`{ "type":"connect",
+*/class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component{log;t;constructor(props){super(props);this.log=this.props.resources.logger;let metadata=this.props.resources.launchMetadata;console.log("resources from Sample React App:",this.props.resources);if(metadata!=null&&metadata.data!=null&&metadata.data.type!=null){console.log("react app received meta data:",metadata);this.handleLaunchOrMessageObject(metadata.data);}else{this.state=this.getDefaultState();}}getDefaultState(){return{actionType:"Launch",appTarget:"PluginCreate",parameters:`{ "type":"connect",
   "connectionSettings":{
       "host":"localhost",
       "port":23,
