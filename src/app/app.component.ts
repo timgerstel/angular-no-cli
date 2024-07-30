@@ -20,6 +20,9 @@ export class AppComponent {
     pluginTwoRef!: ElementRef;
 
     @ViewChild('pluginThree') pluginThreeRef!: ElementRef;
+
+    @ViewChild('pluginFour', {read: ViewContainerRef})
+    pluginFourRef!: ElementRef;
   
     
     async loadPlugin() {
@@ -41,6 +44,12 @@ export class AppComponent {
         console.log(`sample react loaded`, reactPluginModule);
         // const reactPlugin = reactPluginModule.pluginComponent;
         // console.log(`reactPlugin`, reactPlugin);
+
+        const tnPluginLib = '@company/tnplugin';
+        const tnPluginModule = await import(tnPluginLib);
+        console.log(`tnPlugin loaded`, tnPluginModule);
+        const tnPlugin = tnPluginModule.pluginComponent;
+        console.log(`tnPlugin`, tnPlugin);
 
       
         const pluginDef = {
@@ -64,6 +73,13 @@ export class AppComponent {
             pluginType: 'application'
         };
 
+        const tnPluginDef = {
+          identifier: 'org.zowe.terminal.tn3270',
+          version: '0.0.1',
+          pluginVersion: '2.17.0',
+          pluginType: 'application'
+      };
+
       console.log(this.pluginOneRef);
 
 
@@ -80,6 +96,12 @@ export class AppComponent {
         }
 
       reactPluginModule.renderPlugin(this.pluginThreeRef.nativeElement, makeInjector(reactPluginDef));
+
+      const tnComponentRef = this.pluginFourRef.createComponent(tnPlugin, {injector: makeInjector(tnPluginDef)} );
+        if (tnComponentRef) {
+            console.log(`component created`, tnComponentRef);
+            tnComponentRef.changeDetectorRef.detectChanges();
+        }
       // const reactComponentRef = this.pluginThreeRef.createComponent(vtPlugin, {injector: makeInjector(reactPluginDef)} );
       // if (reactComponentRef) {
       //     console.log(`component created`, reactComponentRef);
