@@ -25,7 +25,7 @@ For some reason the items needed are getting erased upon rebuild, so you will wa
   "rxjs": "/node_modules/rxjs/dist/esm/index.js",
   "@company/plugin": "/plugin/index.mjs",
   "@company/vtplugin": "/vt/index.mjs",
-  "@company/samplereact": "/sample-react/main.js"
+  "@company/samplereact": "/sample-react/main.js",
   "@company/tnplugin": "/tn3270/index.mjs"
 }
 ```
