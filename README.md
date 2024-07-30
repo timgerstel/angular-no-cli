@@ -26,6 +26,7 @@ For some reason the items needed are getting erased upon rebuild, so you will wa
   "@company/plugin": "/plugin/index.mjs",
   "@company/vtplugin": "/vt/index.mjs",
   "@company/samplereact": "/sample-react/main.js"
+  "@company/tnplugin": "/tn3270/index.mjs"
 }
 ```
 
