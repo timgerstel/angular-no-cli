@@ -30,7 +30,7 @@ module.exports = {
         type: "module",
       },
       clean: true,
-      path: path.resolve(__dirname, '../../', 'dist', 'zlux-widgets'),
+      path: path.resolve(__dirname, '../', 'dist', 'zlux-widgets'),
       filename: '[name].mjs'
     },
     resolve: {
