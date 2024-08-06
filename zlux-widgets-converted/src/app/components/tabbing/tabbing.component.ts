@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'zlux-tab-trap',  
   template: '',
+  standalone: true
 })
 export class ZluxTabbingComponent implements  AfterViewInit {
 
@@ -226,9 +227,9 @@ export class ZluxTabbingComponent implements  AfterViewInit {
 }
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ZluxTabbingComponent],
   exports: [ZluxTabbingComponent],
-  declarations: [ZluxTabbingComponent]
+  // declarations: [ZluxTabbingComponent]
 })
 export class ZluxTabbingModule { }
 

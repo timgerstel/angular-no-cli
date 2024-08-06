@@ -10,6 +10,24 @@ export const Angular2InjectionTokens = {
 
 };
 
+export interface ContextMenuItem {
+  text: string;
+  icon?: string;
+  shortcutText?: string;
+  shortcutProps?: {
+    "code": string;
+    "altKey": boolean;
+    "ctrlKey": boolean;
+    "metaKey": boolean;
+    "shiftKey": boolean;
+  };
+  action?: () => void;
+  children?: ContextMenuItem[];
+  disabled?: boolean;
+  preventCloseMenu?: boolean;
+}
+
+
 
 export interface Angular2PluginWindowActions {
   readonly close: () => void;
